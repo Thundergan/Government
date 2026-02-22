@@ -52,8 +52,12 @@ install_go_version() {
     echo "Setting up Go environment variables..."
     if [[ "$CURRENT_SHELL" == "bash" ]]; then
         echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+        echo 'export GOBIN=$HOME/.local/bin' >> ~/.bashrc
+        echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
     elif [[ "$CURRENT_SHELL" == "zsh" ]]; then
         echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
+        echo 'export GOBIN=$HOME/.local/bin' >> ~/.zshrc
+        echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.zshrc
     fi
 
     # Inform the user to source the relevant shell configuration
